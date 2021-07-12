@@ -13,30 +13,39 @@
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
 
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+
     <title>Document</title>
 </head>
 <body>
     <!-- php instance -->
     <?php
-        $admin = new Admin("Jeff", "Bezos","14/05/1967","Amazon", "JeffBezos", "passjeff","admin");
+        $admin = new Admin("Jeff", "Bezos","14/05/1967","Amazon", "JeffBezos", "passjeff","Via Ferdinando Magellano", 2, 40033, "Bologna", "Italy","admin");
 
-        $client = new Client("Mattia", "De Bonis","14/05/1987","Nessuna", "Rimmy", "mughini1","si");
-        //$client->hello();
+        $client = new Client("Mattia", "De Bonis","14/05/1987","Nessuna", "Rimmy", "mughini1","Via Ferdinando Magellano", 2, 40033, "Bologna", "Italy","si", 1245);
+        $supplier = new Supplier("Robert", "Kotick","14/05/1956","Activision", "Robb", "passrobb","Via Ferdinando Magellano", 2, 40033, "Bologna", "Italy",true);
 
-        $supplier = new Supplier("Robert", "Kotick","14/05/1956","Activision", "Robb", "passrobb",true);
+        $product1 = new Product("Star Wars Battlefront 2", 59,"Preparati a tornare sul fronte della battaglia nel nuovo episodio della serie di Star Wars in alta definizione più venduta di sempre. Diventa l'eroe e combatti nei panni di un intrepido soldato, pilota un leggendario caccia stellare, controlla il tuo personaggio di Star Wars preferito o segui le gesta di un soldato scelto delle forze speciali in una nuova e appassionante storia di Star Wars.",false, "Videogame", true, "https://images-na.ssl-images-amazon.com/images/I/81rI22vehFL._AC_SL1500_.jpg");
 
-        $product1 = new Product("Star Wars Battledront 2", 5999,"Preparati a tornare sul fronte della battaglia nel nuovo episodio della serie di Star Wars in alta definizione più venduta di sempre. Diventa l'eroe e combatti nei panni di un intrepido soldato, pilota un leggendario caccia stellare, controlla il tuo personaggio di Star Wars preferito o segui le gesta di un soldato scelto delle forze speciali in una nuova e appassionante storia di Star Wars.",false, "Videogame", true);
+        $product2 = new Product("Super Mario Odissey", 49,"Esplora luoghi incredibili lontano dal Regno dei Funghi mentre ti unisci a Mario e al suo nuovo alleato Cappy in un'enorme avventura 3D da trotto.",false, "Videogame", true, "https://images-na.ssl-images-amazon.com/images/I/91JZdTYcjFL._AC_SY500_.jpg");
 
-        $product2 = new Product("Super Mario Odissey", 4999,"Esplora luoghi incredibili lontano dal Regno dei Funghi mentre ti unisci a Mario e al suo nuovo alleato Cappy in un'enorme avventura 3D da trotto. Usa nuove incredibili abilità, come il potere di catturare e controllare oggetti, animali e nemici, per raccogliere le lune in modo da poter potenziare il dirigibile Odyssey e salvare la principessa Peach dai piani di matrimonio di Bowser! Grazie all'eroico Cappy a forma di cappello, Mario ha nuove mosse che ti faranno ripensare al suo tradizionale gameplay corri e salta, come cap jump, cap throw e capture. Usa le coorti catturate come nemici, oggetti e animali per progredire nel gioco e scoprire un sacco di oggetti da collezione nascosti. E se hai voglia di giocare con un amico, passa loro un controller Joy-Con! Il giocatore 1 controlla Mario mentre il giocatore 2 controlla Cappy. Questa avventura di Mario in 3D in stile sandbox, la prima dall'amato Super Mario 64 del 1996 e il classico per Nintendo GameCube del 2002, Super Mario Sunshine, è piena di segreti e sorprese, oltre a nuovi entusiasmanti regni da esplorare.",false, "Videogame", true);
-
-        $product3 = new Product("Doom Eternal", 2950,"Gli eserciti dell'inferno hanno invaso la Terra. Diventa l'Slayer in un'epica campagna per giocatore singolo per conquistare i demoni attraverso le Dimensioni e fermare la distruzione finale dell'umanità.",false, "Videogame", true);
+        $product3 = new Product("Doom Eternal", 29,"Gli eserciti dell'inferno hanno invaso la Terra. Diventa l'Slayer in un'epica campagna per giocatore singolo per conquistare i demoni attraverso le Dimensioni e fermare la distruzione finale dell'umanità.",false, "Videogame", true, "https://images-na.ssl-images-amazon.com/images/I/91qm95y+rZL.jpg");
         
     ?>
     <!-- /php instance -->
 
     <!-- header -->
     <header class="flex">
-        <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1600px-Amazon_logo.svg.png" alt="logo" >
+        <!-- logo -->
+        <div>
+            <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1600px-Amazon_logo.svg.png" alt="logo" >
+        </div>
+        <!-- /logo -->
+
+        <!-- sser -->
         <div>
             <select name="account" id="account">
                 <option value="">     
@@ -49,8 +58,8 @@
                     <?php echo $supplier->name;?>
                 </option>
             </select>
-
         </div>
+        <!-- /user -->
     </header>
     <!-- /header -->
 
@@ -60,6 +69,7 @@
             <!-- product -->
             <div class="product">
                 <?php 
+                    echo("<img class='product-cover' src='". $product1->urlCover ."' alt='product1'>");
                     echo("<h2 class='product-name'>" . $product1->name . "</h2>");
                     echo("<h3 class='product-price'>" . $product1->price . "</h3>");
                     echo("<p class='product-description'>" . $product1->description . "</p>");
@@ -71,6 +81,7 @@
             <!-- product -->
             <div class="product">
                 <?php 
+                    echo("<img class='product-cover' src='". $product2->urlCover ."' alt='product2'>");
                     echo("<h2 class='product-name'>" . $product2->name . "</h2>");
                     echo("<h3 class='product-price'>" . $product2->price . "</h3>");
                     echo("<p class='product-description'>" . $product2->description . "</p>");
@@ -81,6 +92,7 @@
             <!-- product -->
             <div class="product">
                 <?php 
+                    echo("<img class='product-cover' src='". $product3->urlCover ."' alt='product3'>");
                     echo("<h2 class='product-name'>" . $product3->name . "</h2>");
                     echo("<h3 class='product-price'>" . $product3->price . "</h3>");
                     echo("<p class='product-description'>" . $product3->description . "</p>");

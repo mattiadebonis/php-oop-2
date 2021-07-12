@@ -1,4 +1,4 @@
-<!-- <?php 
+<?php 
     trait Address {
         public $street;
         public $number;
@@ -39,4 +39,4 @@
         }
     }
 
-?> -->
+?>

@@ -2,18 +2,38 @@
     box-sizing:border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Lato', sans-serif;
 }
 
 .flex{
     display: flex;
     width: 100%;
+
+}
+header{
+    width: 100%;
+    padding: 15px;
+    background-color: bisque;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #logo{
-    height:50px;
-
+    height: 30px;
 }
+
+
+
 .product{
     width: calc(100%/3 - 15px);
-    margin:15px;
+    max-width:400px;
+    margin: 0 auto;
+    padding:15px;
+}
+
+.product-cover{
+    width: 100%;
+}
+.product-description{
+    font-size: 14px;
 }

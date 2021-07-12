@@ -1,7 +1,7 @@
 <?php
-    include __DIR__ . "/partial/address.php";
-    include __DIR__ . "/partial/creditcard.php";
-    
+    include __DIR__ . "/creditcard.php";
+    include __DIR__ . "/address.php";
+
     //User
     class User {
         public $name;
@@ -10,9 +10,9 @@
         public $company_name;
         public $username;
         public $password;        
-        //use Address;
+        use Address;
 
-        function __construct ($name, $surname, $date_birth, $company_name, $username, $password){
+        function __construct ($name, $surname, $date_birth, $company_name, $username, $password,$street, $number, $postal_code, $region, $country){
             $this->name = $name;
             $this->surname = $surname;
             $this->date_birth = $date_birth;
@@ -31,23 +31,28 @@
 
     //Client
     class Client extends User{
-        use CreditCard;
         public $isPrime;
-        
-        function __construct($name, $surname, $date_birth, $company_name, $username, $password, $isPrime){
+        use CreditCard;
+
+        function __construct($name, $surname, $date_birth, $company_name, $username, $password,$street, $number, $postal_code, $region, $country, $isPrime, $credit_card_number){
             
-            parent::__construct($name, $surname, $date_birth, $company_name, $username, $password, $credit_card_number);
+            parent::__construct($name, $surname, $date_birth, $company_name, $username, $password, $name, $surname, $date_birth, $company_name, $username, $password, $street, $number, $postal_code, $region, $country);
             $this->isPrime = $isPrime;
             $this->credit_card_number = $credit_card_number;
+            $this->isPrime = $isPrime;
+            $this->credit_card_number = $credit_card_number;
+
         }
     }
 
     //Admin
     class Admin extends User{
         public $role;
-        function __construct($name, $surname, $date_birth, $company_name, $username, $password, $role){
+        function __construct($name, $surname, $date_birth, $company_name, $username, $password, $street, $number, $postal_code, $region, $country, $role){
+            parent::__construct($name, $surname, $date_birth, $company_name, $username, $password, $name, $surname, $date_birth, $company_name, $username, $password, $street, $number, $postal_code, $region, $country);
+
             $this->role = $role;
-            parent::__construct($name, $surname, $date_birth, $company_name, $username, $password, $role);
+
         }
     }
 
@@ -55,10 +60,12 @@
     class Supplier extends User{
          public $isActive;
 
-        function __construct( $isActive){
+        function __construct($name, $surname, $date_birth, $company_name, $username, $password, $street, $number, $postal_code, $region, $country, $isActive){
+
+            parent::__construct($name, $surname, $date_birth, $company_name, $username, $password, $name, $surname, $date_birth, $company_name, $username, $password, $street, $number, $postal_code, $region, $country);
+
             $this->isActive = $isActive;
 
-            parent::__construct($name, $surname, $date_birth, $company_name, $username, $password);
         }
     }
 

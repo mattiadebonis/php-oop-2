@@ -1,12 +1,11 @@
 <?php
 trait CreditCard{
-    public function hello(){
-        echo "Hello";
-    }
-        //public $credit_card_number;
+   
+    public $credit_card_number;
         // public $credit_card_type;
         // public $credit_card_expire;
         // public $credit_card_cvc;
+        
         /*
         public function isCreditCardCorrect($number, $type, $expire, $cvc){
             $isCorrect = [
