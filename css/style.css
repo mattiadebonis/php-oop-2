@@ -1,0 +1,19 @@
+*{
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.flex{
+    display: flex;
+    width: 100%;
+}
+
+#logo{
+    height:50px;
+
+}
+.product{
+    width: calc(100%/3 - 15px);
+    margin:15px;
+}
