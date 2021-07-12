@@ -27,7 +27,7 @@
     <?php
         $admin = new Admin("Jeff", "Bezos","14/05/1967","Amazon", "JeffBezos", "passjeff","Via Ferdinando Magellano", 2, 40033, "Bologna", "Italy","admin");
 
-        $client = new Client("Mattia", "De Bonis","14/05/1987","Nessuna", "Rimmy", "mughini1","Via Ferdinando Magellano", 2, 40033, "Bologna", "Italy","si", 1245,"visa",2220, 111);
+        $client = new Client("Mattia", "De Bonis","14/05/1987","Nessuna", "Rimmy", "mughini1","Via Ferdinando Magellano", 2, 40033, "Bologna", "Italy","si", 1111111111111111,"visa",2220, 111);
         
         $supplier = new Supplier("Robert", "Kotick","14/05/1956","Activision", "Robb", "passrobb","Via Ferdinando Magellano", 2, 40033, "Bologna", "Italy",true);
 
