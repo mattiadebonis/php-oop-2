@@ -1,6 +1,8 @@
 <?php
     include __DIR__ . "/partial/user.php";
     include __DIR__ . "/partial/product.php";
+    include __DIR__ . "/coordinator.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -49,13 +51,20 @@
         <div>
             <select name="account" id="account">
                 <option value="">     
-                    <?php echo $client->name;?>
+                    <?php 
+                        echo $client->name. " ". $client->surname . " <span class='text-uppercase'>Cliente</span>";
+
+                    ?>
                 </option>
                 <option value="">     
-                    <?php echo $admin->name;?>
+                    <?php 
+                        echo $admin->name . " " . $admin->surname." <span class='text-uppercase'>". $admin->role ."</span>"
+                    ?>
                 </option>
                 <option value="">     
-                    <?php echo $supplier->name;?>
+                    <?php 
+                        echo $supplier->name. " ". $supplier->surname . " <span class='text-uppercase'>Fornitore</span>";
+                    ?>
                 </option>
             </select>
         </div>
@@ -64,8 +73,10 @@
     <!-- /header -->
 
     <!-- main -->
-    <main>
-        <section class="flex">
+    <main class="flex">
+        
+        <!-- shop -->
+        <section id="shop" class="flex">
             <!-- product -->
             <div class="product">
                 <?php 
@@ -73,7 +84,9 @@
                     echo("<h2 class='product-name'>" . $product1->name . "</h2>");
                     echo("<h3 class='product-price'>" . $product1->price . "</h3>");
                     echo("<p class='product-description'>" . $product1->description . "</p>");
-                    
+
+                    //put product on the basket
+                    $product1-> isBuyed(true);
                 ?>
             </div>
             <!-- /product -->
@@ -100,33 +113,37 @@
             </div>
             <!-- /product -->
         </section>
+        <!-- shop -->
+
+        <!-- basket -->
+        <section id="basket">
+
+            <h1>Carrello</h1>
+            <?php
+                if ($product1->isBuy == true){
+                    echo("<p>" . $product1->name . "</p>");
+                    echo("<span>" . $product1->price . "€</span>");
+ 
+                }
+                if ($product2->isBuy == true){
+                    
+                    echo("<p>" . $product2->name . "</p>");
+                    echo("<span>" . $product2->price . "€</span>");
+                }
+                if ($product3->isBuy == true){
+                    
+                    echo("<p>" . $product3->name . "</p>" . "<span>" . $product3->price . "€</span>");
+                    echo("<span>" . $product3->price . "€</span>");
+                }
+
+            ?>
+
+        </section>
+        <!-- /basket -->
     </main>
     <!-- /main -->
 
-    <!-- aside -->
-    <aside>
-
-        <?php
-            if ($product1->isBuy == true){
-                echo("<h2 class='product-name'>" . $product1->name . "</h2>");
-                echo("<h3 class='product-price'>" . $product1->price . "</h3>");
-                echo("<p class='product-description'>" . $product1->description . "</p>");
-                $product1->isBuyed();
-            }
-            if ($product2->isBuy == true){
-                echo("<h2 class='product-name'>" . $product2->name . "</h2>");
-                echo("<h3 class='product-price'>" . $product2->price . "</h3>");
-                echo("<p class='product-description'>" . $product2->description . "</p>");
-            }
-            if ($product3->isBuy == true){
-                echo("<h2 class='product-name'>" . $product3->name . "</h2>");
-                echo("<h3 class='product-price'>" . $product3->price . "</h3>");
-                echo("<p class='product-description'>" . $product3->description . "</p>");
-            }
-
-        ?>
-    </aside>
-    <!-- /aside -->
+    
 
     
 </body>

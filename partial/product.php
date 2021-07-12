@@ -19,8 +19,8 @@
 
         }
         
-        function isBuyed(){
-            $isBuy = true;
+        function isBuyed($purchased){
+            $this->isBuy = $purchased;
         }
 
     }

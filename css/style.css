@@ -18,11 +18,17 @@ header{
     align-items: center;
 }
 
+.text-uppercas{
+    text-transform: uppercase;
+}
+
 #logo{
     height: 30px;
 }
 
-
+#shop{
+    width:80%;
+}
 
 .product{
     width: calc(100%/3 - 15px);
@@ -32,8 +38,29 @@ header{
 }
 
 .product-cover{
-    width: 100%;
+    width: 200px;
+    
+    object-fit:cover ;
+
 }
 .product-description{
     font-size: 14px;
 }
+
+/*BASKET*/
+#basket{
+    width:20%;
+    height: 100vh;
+    background-color: cadetblue;
+    padding: 15px;
+}
+
+#basket h1{
+    margin-bottom: 30px;
+}
+
+#basket .product-cover{
+    width:120px;
+    height: 180px;
+}
+
