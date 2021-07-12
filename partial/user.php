@@ -34,13 +34,15 @@
         public $isPrime;
         use CreditCard;
 
-        function __construct($name, $surname, $date_birth, $company_name, $username, $password,$street, $number, $postal_code, $region, $country, $isPrime, $credit_card_number){
+        function __construct($name, $surname, $date_birth, $company_name, $username, $password,$street, $number, $postal_code, $region, $country, $isPrime, $card_number, $card_type, $card_expire, $card_cvc){
             
             parent::__construct($name, $surname, $date_birth, $company_name, $username, $password, $name, $surname, $date_birth, $company_name, $username, $password, $street, $number, $postal_code, $region, $country);
+
             $this->isPrime = $isPrime;
-            $this->credit_card_number = $credit_card_number;
-            $this->isPrime = $isPrime;
-            $this->credit_card_number = $credit_card_number;
+            $this->card_number = $card_number;
+            $this->card_type = $card_type;
+            $this->card_expire = $card_expire;
+            $this->card_cvc = $card_cvc;
 
         }
     }

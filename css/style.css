@@ -7,6 +7,7 @@
 
 .flex{
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
 
 }
@@ -39,7 +40,6 @@ header{
 
 .product-cover{
     width: 200px;
-    
     object-fit:cover ;
 
 }
@@ -52,15 +52,16 @@ header{
     width:20%;
     height: 100vh;
     background-color: cadetblue;
-    padding: 15px;
+    padding: 15px;    
 }
 
 #basket h1{
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+    font-weight: 700;
 }
 
-#basket .product-cover{
-    width:120px;
-    height: 180px;
+#payment{
+    margin-top: 30px;
 }
+
 

@@ -1,13 +1,13 @@
 <?php
 trait CreditCard{
    
-    public $credit_card_number;
-        // public $credit_card_type;
-        // public $credit_card_expire;
-        // public $credit_card_cvc;
+    public $card_number;
+    public $card_type;
+    public $card_expire;
+    public $card_cvc;
         
-        /*
-        public function isCreditCardCorrect($number, $type, $expire, $cvc){
+    
+    public function isCardCorrect($number, $type, $expire, $cvc){
             $isCorrect = [
                 "isNumber" => true,
                 "isType" => true,
@@ -39,6 +39,7 @@ trait CreditCard{
 
             return  $isCorrect;
         }
-        */
+
+    
     }
 ?>

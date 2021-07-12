@@ -27,7 +27,8 @@
     <?php
         $admin = new Admin("Jeff", "Bezos","14/05/1967","Amazon", "JeffBezos", "passjeff","Via Ferdinando Magellano", 2, 40033, "Bologna", "Italy","admin");
 
-        $client = new Client("Mattia", "De Bonis","14/05/1987","Nessuna", "Rimmy", "mughini1","Via Ferdinando Magellano", 2, 40033, "Bologna", "Italy","si", 1245);
+        $client = new Client("Mattia", "De Bonis","14/05/1987","Nessuna", "Rimmy", "mughini1","Via Ferdinando Magellano", 2, 40033, "Bologna", "Italy","si", 1245,"visa",2220, 111);
+        
         $supplier = new Supplier("Robert", "Kotick","14/05/1956","Activision", "Robb", "passrobb","Via Ferdinando Magellano", 2, 40033, "Bologna", "Italy",true);
 
         $product1 = new Product("Star Wars Battlefront 2", 59,"Preparati a tornare sul fronte della battaglia nel nuovo episodio della serie di Star Wars in alta definizione più venduta di sempre. Diventa l'eroe e combatti nei panni di un intrepido soldato, pilota un leggendario caccia stellare, controlla il tuo personaggio di Star Wars preferito o segui le gesta di un soldato scelto delle forze speciali in una nuova e appassionante storia di Star Wars.",false, "Videogame", true, "https://images-na.ssl-images-amazon.com/images/I/81rI22vehFL._AC_SL1500_.jpg");
@@ -118,25 +119,56 @@
         <!-- basket -->
         <section id="basket">
 
-            <h1>Carrello</h1>
-            <?php
-                if ($product1->isBuy == true){
-                    echo("<p>" . $product1->name . "</p>");
-                    echo("<span>" . $product1->price . "€</span>");
- 
-                }
-                if ($product2->isBuy == true){
-                    
-                    echo("<p>" . $product2->name . "</p>");
-                    echo("<span>" . $product2->price . "€</span>");
-                }
-                if ($product3->isBuy == true){
-                    
-                    echo("<p>" . $product3->name . "</p>" . "<span>" . $product3->price . "€</span>");
-                    echo("<span>" . $product3->price . "€</span>");
-                }
+            <div>
+                <h1>Carrello</h1>
+                <?php
+                    if ($product1->isBuy == true){
+                        echo("<p>" . $product1->name . "</p>");
+                        echo("<span>" . $product1->price . "€</span>");
+    
+                    }
+                    if ($product2->isBuy == true){
+                        
+                        echo("<p>" . $product2->name . "</p>");
+                        echo("<span>" . $product2->price . "€</span>");
+                    }
+                    if ($product3->isBuy == true){
+                        
+                        echo("<p>" . $product3->name . "</p>" . "<span>" . $product3->price . "€</span>");
+                        echo("<span>" . $product3->price . "€</span>");
+                    }
+                ?>
+            </div>
+            <div id="payment">
+                <form action="">
+                    <h1>Pagamento</h1>
+                    <?php
+                        echo ("<p>Numero carta: ".$client->card_number ."</p>");
+                        echo ("<p>Tipo carta: ".$client->card_type ."</p>");
+                        echo ("<p>Scadenza:".$client->card_expire ."</p>");
 
-            ?>
+                        echo ("<p>Cvc:".$client->card_cvc ."</p>");
+                        
+                        foreach ($client->isCardCorrect($client->card_number,$client->card_type,$client->card_expire,$client->card_cvc) as $key => $value) {
+
+                            if($value["isNumber"] == false){
+                                echo("<p>Il numero della carta non è valido</p>");
+                            }
+                            if($value["isType"] == false){
+                                echo("<p>Il tipo della carta non è valido</p>");
+                            }
+                            if($value["isExpire"] == false){
+                                echo("<p>La scadenza della carta non è valida</p>");
+                            }
+                            if($value["isCvc"] == false){
+                                echo("<p>Il cvc non è valido</p>");
+                            }
+                            break;
+                        }
+                    ?>
+                </form>
+            </div>
+            
 
         </section>
         <!-- /basket -->
